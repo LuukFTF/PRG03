@@ -1,0 +1,11 @@
+type: theory
+files:
+- name: task.js
+  visible: true
+  text: |-
+    //Voel je vrij om even te spelen met wat Javascript code
+    console.log("Hallo, lekker bezig!");
+  learner_created: false
+status: Solved
+record: -1
+post_submission_on_open: true

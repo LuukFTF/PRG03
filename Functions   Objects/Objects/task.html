@@ -1,0 +1,49 @@
+<html>
+<p>
+    Objecten zijn (nog meer dan Arrays) enorm krachtig en kunnen op verschillende
+    manieren geschreven worden in Javascript. We bekijken hier het gebruik van een
+    'object initializer' <code>{}</code>.
+</p>
+<p>
+    Doel van het gebruik van Objecten is nog meer structuur brengen in je code. Een object
+    kan bijvoorbeeld een "Hond" zijn die eigenschappen heeft (ras, leeftijd, naam) en daarnaast
+    functionaliteiten heeft (blaffen, eten).
+</p>
+<p>
+    In object georiënteerd programmeren noemen we eigenschappen 'properties', en functionaliteiten
+    noemen we 'methods'. Eigenlijk kun je dit zien als variabelen (properties) en functies (methods)
+    maar dan gecategoriseerd binnen een object. Zie hieronder een klein voorbeeld van de Hond:
+    <br/><br/>
+    <code>
+        let dog = {<br/>
+        &nbsp;&nbsp;&nbsp;name: 'Fido',<br/>
+        &nbsp;&nbsp;&nbsp;age: 5,<br/>
+        &nbsp;&nbsp;&nbsp;breed: 'Mixed',<br/>
+        &nbsp;&nbsp;&nbsp;loves: ['walks', 'fetching balls'],<br/>
+        &nbsp;&nbsp;&nbsp;bark: function() {<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("Woof woof");<br/>
+        &nbsp;&nbsp;&nbsp;}<br/>
+        }
+    </code>
+</p>
+<p>
+    Objecten bieden veel meer mogelijkheden, notaties en vormen van complexiteit.
+    Meer lezen kun je op <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects">deze link</a>.
+    Ga nu aan de slag met de volgende opdrachten:
+</p>
+<ul>
+    <li>
+        Gegeven is het lege object genaamd <code>dish</code>. Voorzie dit object van 2 properties
+        <code>name</code> (string) en <code>scores</code> (array met nummers: <code>[3, 5, 2, 2, 4]</code>)
+    </li>
+    <li>
+        <a href="https://nl.wikipedia.org/wiki/Refactoren">Refactor</a> de geschreven functies (addScore en
+        calculateAverageScore) uit de vorige opdracht en maak er methods van binnen het object <code>dish</code>.
+        Zorg ervoor dat de method <code>addScore</code> een waarde toevoegt in property scores.
+        <div class="hint">
+            <a href="https://javascript.info/object-methods#:~:text=To%20access%20the%20object%2C%20a,used%20to%20call%20the%20method.">Kijk hier</a>
+            eens om te zien hoe je properties van een object kunt benaderen in een method.
+        </div>
+    </li>
+</ul>
+</html>

@@ -1,0 +1,14 @@
+title: PRG03
+language: English
+summary: |
+  In deze cursus leer je werken met Javascript verdeeld over 6 verschillende onderwerpen.
+  Al deze kennis neem je mee om je eindopdracht en het tentamen goed af te kunnen leggen.
+programming_language: JavaScript
+content:
+- Basics
+- Functions   Objects
+- DOM
+- Events
+- Web APIs
+- AJAX
+mode: Study

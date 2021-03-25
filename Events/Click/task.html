@@ -1,0 +1,56 @@
+<html>
+<p>
+    Wow, de vorige opdracht bevatte aardig wat informatie! &#128561; Events zijn ook niet
+    makkelijk. Het zijn er veel verschillende en je moet het hele principe van 'callbacks'
+    goed begrijpen om in te zien hoe de flow van je code loopt.
+</p>
+<p>
+    Ons startpunt om verder te gaan is de uitwerking van de vorige opdracht. Nog
+    even in volgorde wat er nu precies gebeurd:
+</p>
+<ul>
+    <li>
+        De eerste event listener (load op window) zal uitgevoerd worden nadat de hele
+        HTML pagina klaar is met laden.
+    </li>
+    <li>
+        De functie die dan uitgevoerd wordt is 'init'. Daarin komt je initiële code
+        terecht die weer naar andere functies zal verwijzen. In dit geval een nieuwe
+        event listener die de submit van het form afvangt.
+        <div class="hint">
+            Wist je dat het NIET handig is om het formulier af te vangen met een
+            <strong>click</strong> event op de submit button? Daarmee ben je volledig afhankelijk
+            van een click, terwijl een formulier ook via je toetsenbord of via voice verstuurd
+            kan worden. Vandaar het gebruik van het <strong>submit</strong> event.
+        </div>
+    </li>
+    <li>
+        We hebben de functie 'addItem' uit de vorige opdracht hernoemd naar 'formSubmitHandler'.
+        Wat je hiermee doet is zorgen dat de naam van de functie ook terug verwijst naar de
+        originele actie waarmee deze werd uitgevoerd. Dit is een best practice om te gebruiken
+        voor functies die uit callbacks komen.
+    </li>
+    <li>
+        In deze functie wordt de daadwerkelijk actie uitgevoerd om de waarde uit de input
+        te halen, een nieuw list item aan te maken en een bericht te tonen.
+    </li>
+</ul>
+<p>
+    Nu ben jij aan de beurt. Maak de volgende opdrachten als uitbreiding op de bestaande code:
+</p>
+<ul>
+    <li>
+        Zorg ervoor dat bij het klikken op een <code>&lt;li&gt;</code>, de achtergrondkleur van de
+        aangeklikte <code>&lt;li&gt;</code> geel wordt.
+        <div class="hint">
+            Psst; we hebben een CSS bestand toegevoegd, maak dus gebruik van de class die
+            hier is aangemaakt!
+        </div>
+    </li>
+    <li>
+        Werkt het veranderen van de achtergrondkleur nu ook op een nieuw toegevoegde
+        <code>&lt;li&gt;</code>? Zo niet, kijk dan goed waar in je code je de nieuwe
+        <code>&lt;li&gt;</code> items ook kunt meenemen!
+    </li>
+</ul>
+</html>

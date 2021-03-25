@@ -1,0 +1,50 @@
+<html>
+<p>
+    Nu we eenmaal data met de Fetch API hebben opgehaald van een externe API (in dit geval de
+    Pokémon API), kunnen we verder. Laten we de data gebruiken om een mooi lijstje te maken in
+    onze HTML met daarin de originele 151 Pokémons. Laten we werken aan de volgende opdrachten:
+</p>
+<ul>
+    <li>
+        Pas je kennis toe uit "DOM &gt; Creating" om een <code>&lt;ul&gt;</code> aan te maken. Geef deze
+        UL het ID "pokemons". Maak vervolgens een <code>&lt;li&gt;</code> aan per Pokémon die in de
+        <code>data.results</code> zit en plaats hierin de naam van de Pokémon. Voeg de UL toe aan de
+        body van je HTML.
+    </li>
+    <li>
+        Kijk uit! Aangezien we data laden via een click op een button kunnen we potentieel 400 keer
+        op de button klikken. In de <code>getPokemonsSuccessHandler()</code> functie willen we dus zorgen
+        dat we niet nog een keer in deze functie komen. Verzin een slimme oplossing om te zorgen dat je maar
+        1 keer in de functie kunt komen.
+        <div class="hint">
+            Er zijn veel mogelijkheden om te voorkomen dat je data dubbel in laad. Je kunt een state variable
+            (boolean) bijhouden en daarop controleren, of in dit voorbeeld de<code>removeEventListener()</code>
+            functie gebruiken. We zullen in de praktijklessen uitgebreid laten zien hoe je hier slim mee om kunt
+            gaan in jouw code.
+        </div>
+    </li>
+    <li>
+        Nu we een mooi lijstje met Pokémons op ons scherm zien, willen we graag dat we na het klikken op
+        een Pokémon de types (grass, fire, etc) zien die bij ze horen. Schrijf de code waarin bij een click
+        op de Pokémon, zijn types in de bestaande <code>&lt;div&gt;</code> met ID "types" geplaatst worden. We hebben
+        hiervoor de variable <code>$types</code> al klaarstaan. Noem de callback functie van deze click
+        <code>pokemonClickHandler()</code>.
+        <div class="hint">
+            Goed geraden! We moeten inderdaad een nieuwe AJAX call doen om deze extra informatie op te halen.
+            In de <code>data.results</code> zit per Pokémon niet alleen de naam maar ook een nieuwe API url.
+            Deze URL kun je weer via de Fetch API aanroepen om de extra informatie uit de API op te halen. Noem
+            deze nieuwe callback functie <code>getPokemonDetailSuccessHandler()</code>
+        </div>
+        <div class="hint">
+            Probeer goed te kijken hoe je zorgt dat je bij het klikken op een Pokémon daarna in de clickHandler
+            functie nog weet wat de URL was die daarbij hoort. TIP: Het
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLOrForeignElement/dataset">dataset attribuut</a>
+            kun je op een DOM Element gebruiken om informatie op te slaan die je later weer nodig hebt!
+        </div>
+    </li>
+    <li>
+        We zien dat we nu 2 keer de Fetch API nodig hebben. Zorg ervoor dat je maar 1 functie gebruikt om te voorkomen
+        dat je vaker dan 1 keer dezelfde Fetch code aan het schrijven bent.
+    </li>
+</ul>
+</html>

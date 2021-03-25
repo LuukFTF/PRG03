@@ -1,0 +1,47 @@
+type: edu
+files:
+- name: task.js
+  visible: true
+  placeholders:
+  - offset: 25
+    length: 21
+    placeholder_text: //Hier komt jouw code
+    initial_state:
+      length: 21
+      offset: 25
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      let firstLetter = dish.charAt(0).toUpperCase();
+      let dishWithoutFirstLetter = dish.substr(1);
+      let capitalizeDish = firstLetter + dishWithoutFirstLetter;
+  text: |
+    let dish = 'spaghetti';
+
+    //Hier komt jouw code
+  learner_created: false
+- name: test/test.js
+  visible: false
+  text: |-
+    /**
+     * Imports task file in order to use functions declared in it
+     * @param f file name or its relative path to task
+     */
+    function import_task_file(f) {
+        const path = require("path");
+        const fs = require("fs");
+        let loadedTask = fs.readFileSync(path.join(__dirname, "..", f)).toString();
+        loadedTask = loadedTask.replace(/let /g, 'var ').replace(/const /g, 'var ');
+        eval.apply(global, [loadedTask]);
+    }
+
+    test('Check capitalizeDish variable', () => {
+        import_task_file("task.js");
+        if (capitalizeDish !== 'Spaghetti') {
+            fail('capitalizeDish zou gelijk moeten staan aan "Spaghetti" en niet aan "' + capitalizeDish + '"');
+        }
+    });
+  learner_created: false
+status: Unchecked
+record: -1

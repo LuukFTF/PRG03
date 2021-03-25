@@ -1,0 +1,120 @@
+type: edu
+files:
+- name: task.js
+  visible: true
+  placeholders:
+  - offset: 476
+    length: 25
+    placeholder_text: //Los de opdracht hier op
+    initial_state:
+      length: 25
+      offset: 476
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      let totalPlaceholder = document.getElementById('total');
+      totalPlaceholder.innerHTML = total.toFixed(2);
+  text: |
+    let receipts = document.getElementsByTagName('li');
+    let total = 0.0;
+
+    // test of je de tags hebt gevonden
+    console.log(receipts);
+
+    // De loop selecteert de opgehaalde string en maakt hier een float van
+    // Op die manier krijg je een mooie optelsom
+    for (let i = 0; i < receipts.length; i++) {
+        let totalString = receipts[i].innerHTML;
+        total += parseFloat(totalString);
+        console.log("totaal is nu " + total);
+        console.log("afgerond getal is " + total.toFixed(2));
+    }
+
+    //Los de opdracht hier op
+  learner_created: false
+- name: test/test.js
+  visible: false
+  text: |-
+    /**
+     * Imports task file in order to use functions declared in it
+     * @param f file name or its relative path to task
+     */
+    function import_task_file(f) {
+        const path = require("path");
+        const fs = require("fs");
+        let loadedTask = fs.readFileSync(path.join(__dirname, "..", f)).toString();
+        loadedTask = loadedTask.replace(/let /g, 'var ').replace(/const /g, 'var ');
+        eval.apply(global, [loadedTask]);
+    }
+
+    test('Test DOM selection', () => {
+        document.body.innerHTML = getHTML();
+        import_task_file("task.js");
+
+        if (typeof totalPlaceholder === 'undefined') {
+            fail('De variable "totalPlaceholder" if niet aangemaakt');
+        }
+
+        if (!(totalPlaceholder instanceof HTMLDivElement)) {
+            fail('De variable "totalPlaceholder" is niet goed gekoppeld aan het juiste opgehaald HTML element uit de opdracht');
+        }
+
+        let jestTotalCalculated = total.toFixed(2);
+        let jestTotalInHTML = totalPlaceholder.innerHTML;
+        if (jestTotalInHTML !== jestTotalCalculated) {
+            fail('De waarde van "totalPlaceholder" (' + jestTotalInHTML + ') is niet gelijk aan de verwachte ' + jestTotalCalculated);
+        }
+    });
+
+    function getHTML() {
+        return `
+    <h1>Selecting dom elements</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid architecto delectus deleniti dolores earum eius enim in ipsam magnam maiores maxime nam nesciunt, nisi, nostrum odit pariatur quae quidem tempore?</p>
+
+    <div id="container">
+        <h1>Mijn bonnetjes</h1>
+
+        <div id="total"></div>
+
+        <ul id="receipt">
+            <li>2.45</li>
+            <li>6.45</li>
+            <li>6.56</li>
+            <li>7.49</li>
+        </ul>
+    </div>
+        `;
+    }
+  learner_created: false
+- name: index.html
+  visible: true
+  text: |
+    <!doctype html>
+    <html lang="nl">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Selecting dom elements</title>
+    </head>
+    <body>
+    <h1>Selecting dom elements</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam architecto dicta doloribus, explicabo minima, nostrum nulla perspiciatis, quis rerum soluta vel voluptas voluptates. Atque facere fuga harum, minus quos voluptates!</p>
+
+    <div id="container">
+        <h1>Mijn bonnetjes</h1>
+
+        <div id="total"></div>
+
+        <ul id="receipt">
+            <li>2.45</li>
+            <li>6.45</li>
+            <li>6.56</li>
+            <li>7.49</li>
+        </ul>
+    </div>
+    <script type="text/javascript" src="task.js"></script>
+    </body>
+    </html>
+  learner_created: false
+status: Unchecked
+record: -1

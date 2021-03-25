@@ -1,0 +1,99 @@
+type: theory
+files:
+- name: task.js
+  visible: true
+  text: |
+    window.addEventListener('load', init);
+
+    //Global vars
+    let ul;
+
+    /**
+     * Execute after document is fully loaded
+     */
+    function init() {
+        let form = document.getElementById('new-todo-form');
+        form.addEventListener('submit', formSubmitHandler);
+
+        //Add event listener on all items at once
+        ul = document.getElementById('todo');
+        ul.addEventListener('click', liClickHandler);
+    }
+
+    /**
+     * Handler for the form submit event
+     *
+     * @param e
+     */
+    function formSubmitHandler(e) {
+        e.preventDefault(); //Leave this one out to see te result
+
+        //Get value from input
+        let textInput = document.getElementById('todo-input').value;
+        //The UL is no global so we don't need to retrieve it here
+
+        //Create new li element
+        let li = document.createElement('li');
+        li.innerHTML = textInput;
+        //The li click handler is NOT needed anymore
+
+        //Empty the current form item so we can add another
+        document.getElementById('todo-input').value = "";
+        document.getElementById('message').innerHTML = textInput + " is toegevoegd";
+
+        //Add item to the list
+        ul.appendChild(li);
+    }
+
+    /**
+     * Handler for clicking on a list item
+     *
+     * @param e
+     */
+    function liClickHandler(e) {
+        let clickedItem = e.target;
+
+        //Check if the clicked element is a li
+        if (clickedItem.nodeName === 'LI') {
+            clickedItem.classList.toggle('yellow');
+        }
+    }
+  learner_created: false
+- name: style.css
+  visible: true
+  text: |
+    .yellow {
+        background-color: yellow;
+    }
+  learner_created: false
+- name: index.html
+  visible: true
+  text: |
+    <!doctype html>
+    <html lang="nl">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Events - playground</title>
+        <link href="style.css" type="text/css" rel="stylesheet"/>
+    </head>
+    <body>
+    <h1>Events - playground</h1>
+    <div id="message"></div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet architecto asperiores cum dolorem excepturi illum, iste itaque iusto minus necessitatibus nemo nobis nulla omnis quaerat vel voluptatibus. Perspiciatis, rerum.</p>
+    <form id="new-todo-form" method="post">
+        <label for="todo-input">Text</label>
+        <input type="text" value="" id="todo-input"/>
+        <input type="submit" value="Add item"/>
+    </form>
+    <ul id="todo">
+        <li>Finish creating a todo list</li>
+        <li>Feed the cat</li>
+        <li>Watch Adventure Time</li>
+    </ul>
+    <script type="text/javascript" src="task.js"></script>
+    </body>
+    </html>
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

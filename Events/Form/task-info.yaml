@@ -1,0 +1,136 @@
+type: edu
+files:
+- name: task.js
+  visible: true
+  placeholders:
+  - offset: 156
+    length: 0
+    placeholder_text: ""
+    initial_state:
+      length: 0
+      offset: 156
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      let form = document.getElementById('new-todo-form');
+          form.addEventListener('submit', addItem);
+  - offset: 241
+    length: 0
+    placeholder_text: ""
+    initial_state:
+      length: 0
+      offset: 241
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      //Make sure we won't actually send the form
+          e.preventDefault();
+
+          //Get the value from the form element
+          let newItem = document.getElementById('todo-input').value;
+
+          //Retrieve the whole list
+          let ul = document.getElementById('todo');
+
+          //Create a new list item
+          let li = document.createElement('li');
+          li.innerHTML = newItem;
+
+          //Empty the current form item so we can add another & show message to user
+          document.getElementById('todo-input').value = "";
+          document.getElementById('message').innerHTML = newItem + " is toegevoegd";
+
+          //Append new item to the list
+          ul.appendChild(li);
+  text: "window.addEventListener('load', init);\n\n/**\n * Execute after document\
+    \ is fully loaded\n */\nfunction init() {\n    //Get the form & listen to submit\
+    \ event\n    \n}\n\n/**\n * Add the new item to the list\n *\n * @param e\n */\n\
+    function addItem(e) {\n    \n}\n"
+  learner_created: false
+- name: test/test.js
+  visible: false
+  text: |-
+    /**
+     * Imports task file in order to use functions declared in it
+     * @param f file name or its relative path to task
+     */
+    function import_task_file(f) {
+        const path = require("path");
+        const fs = require("fs");
+        let loadedTask = fs.readFileSync(path.join(__dirname, "..", f)).toString();
+        loadedTask = loadedTask.replace(/let /g, 'var ').replace(/const /g, 'var ');
+        eval.apply(global, [loadedTask]);
+    }
+
+    test('Test form event', () => {
+        document.body.innerHTML = getHTML();
+        import_task_file("task.js");
+        dispatchEvent(new Event("load"));
+
+        let inputElement = document.getElementById("todo-input");
+
+        let evt = new CustomEvent("submit");
+        document.getElementById('new-todo-form').dispatchEvent(evt);
+
+        if (typeof addItem !== 'function') {
+            fail('De function "addItem(e)" moet je wel laten staan!');
+        }
+
+        let createdLiItem = document.getElementsByTagName('li')[3];
+        if (typeof createdLiItem === 'undefined' || !(createdLiItem instanceof HTMLLIElement)) {
+            fail('Er is na submit geen nieuw list-item aan de HTML toegevoegd');
+        }
+        if (createdLiItem.innerHTML !== inputElement.value) {
+            fail('De inhoud van het nieuwe list-item staat niet gelijk aan "' + inputElement.value + '" maar is "' + createdLiItem.innerHTML + '"');
+        }
+    });
+
+    function getHTML() {
+        return `
+    <h1>Events - form</h1>
+    <div id="message"></div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores corporis delectus ex hic in minus recusandae repellendus. A officia pariatur quisquam soluta. At, dolorem eum iste modi tempore tenetur voluptates.</p>
+    <ul id="todo">
+        <li>Finish creating a todo list</li>
+        <li>Feed the cat</li>
+        <li>Watch Adventure Time</li>
+    </ul>
+    <form id="new-todo-form" method="post">
+        <label for="todo-input">Text</label>
+        <input type="text" value="" id="todo-input"/>
+        <input type="submit" value="Add item"/>
+    </form>
+        `;
+    }
+  learner_created: false
+- name: index.html
+  visible: true
+  text: |
+    <!doctype html>
+    <html lang="nl">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Events - form</title>
+    </head>
+    <body>
+    <h1>Events - form</h1>
+    <div id="message"></div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi assumenda at culpa distinctio doloremque dolorum eligendi laborum libero maiores, officiis porro quam quis, quod sit tempore, totam velit veritatis vero.</p>
+    <form id="new-todo-form" method="post">
+        <label for="todo-input">Text</label>
+        <input type="text" value="" id="todo-input"/>
+        <input type="submit" value="Add item"/>
+    </form>
+    <ul id="todo">
+        <li>Finish creating a todo list</li>
+        <li>Feed the cat</li>
+        <li>Watch Adventure Time</li>
+    </ul>
+    <script type="text/javascript" src="task.js"></script>
+    </body>
+    </html>
+  learner_created: false
+status: Unchecked
+record: -1

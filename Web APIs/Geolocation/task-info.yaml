@@ -1,0 +1,172 @@
+type: edu
+files:
+- name: task.js
+  visible: true
+  placeholders:
+  - offset: 103
+    length: 53
+    placeholder_text: //Koppel de 2 global variabelen aan de HTML elementen
+    initial_state:
+      length: 53
+      offset: 103
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      $target = document.getElementById('target');
+          $button = document.getElementById('button');
+  - offset: 339
+    length: 23
+    placeholder_text: //Click event op button
+    initial_state:
+      length: 23
+      offset: 339
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: $button.addEventListener('click', buttonClickHandler);
+  - offset: 423
+    length: 100
+    placeholder_text: //Zorg ervoor dat de functie 'showCurrentLocation' wordt aangeroepen
+      op basis van de geolocation API
+    initial_state:
+      length: 100
+      offset: 423
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      navigator.geolocation.getCurrentPosition(showCurrentLocation);
+          navigator.geolocation.watchPosition(showCurrentLocation);
+  - offset: 702
+    length: 52
+    placeholder_text: //Plaats de latitude en longitude in de $target HTML
+    initial_state:
+      length: 52
+      offset: 702
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: $target.innerHTML = (location.coords.latitude + ',
+      ' + location.coords.longitude);
+  text: |
+    window.addEventListener('load', init);
+
+    //Global vars
+    let $target;
+    let $button;
+
+    function init() {
+        //Koppel de 2 global variabelen aan de HTML elementen
+
+        //For older browsers a fallback
+        if (typeof navigator.geolocation === "undefined") {
+            $target.innerHTML = 'Geolocation API not supported.';
+            return;
+        }
+
+        //Click event op button
+    }
+
+    /**
+     * @param e
+     */
+    function buttonClickHandler(e) {
+        //Zorg ervoor dat de functie 'showCurrentLocation' wordt aangeroepen op basis van de geolocation API
+    }
+
+    /**
+     * You could use this information to place a marker on a (Google) Maps plugin
+     *
+     * @param location
+     */
+    function showCurrentLocation(location) {
+        $button.remove();
+        //Plaats de latitude en longitude in de $target HTML
+    }
+  learner_created: false
+- name: test/test.js
+  visible: false
+  text: |
+    /**
+     * Imports task file in order to use functions declared in it
+     * @param f file name or its relative path to task
+     */
+    function import_task_file(f) {
+        const path = require("path");
+        const fs = require("fs");
+        let loadedTask = fs.readFileSync(path.join(__dirname, "..", f)).toString();
+        loadedTask = loadedTask.replace(/let /g, 'var ').replace(/const /g, 'var ');
+        eval.apply(global, [loadedTask]);
+    }
+
+    test('Test geolocation API', () => {
+        document.body.innerHTML = getHTML();
+        global.navigator.geolocation = {};
+        import_task_file("task.js");
+        dispatchEvent(new Event("load"));
+
+        global.navigator.geolocation = {
+            getCurrentPosition: jest.fn()
+                .mockImplementationOnce((success) => Promise.resolve(success({
+                    coords: {
+                        latitude: 51.1,
+                        longitude: 45.3
+                    }
+                }))),
+            watchPosition: jest.fn()
+        };
+
+        if (typeof $target !== 'object' || !($target instanceof HTMLDivElement) || $target.id !== 'target') {
+            fail('De variable $target is niet gekoppeld aan het HTML DIV element met ID "target"');
+        }
+
+        if (typeof $button !== 'object' || !($button instanceof HTMLButtonElement) || $button.id !== 'button') {
+            fail('De variable $button is niet gekoppeld aan het HTML element met ID "button"');
+        }
+
+        if (typeof buttonClickHandler !== 'function') {
+            fail('De function "buttonClickHandler(e)" moet je wel laten staan!');
+        }
+
+        if (typeof showCurrentLocation !== 'function') {
+            fail('De function "showCurrentLocation(location)" moet je wel laten staan!');
+        }
+
+        $button.click();
+
+        if ($target.innerHTML === "") {
+            fail('De latitude en longitude worden niet in het HTML element met ID "target" geplaatst, het element is nu nog leeg');
+        }
+
+        if ($target.innerHTML !== "51.1, 45.3") {
+            fail('De latitude en longitude worden niet in het HTML element met ID "target" geplaatst, er staat nu: ' + $target.innerHTML);
+        }
+    });
+
+    function getHTML() {
+        return `
+    <div id="target"></div>
+    <button id="button">Get Geo location</button>
+        `;
+    }
+  learner_created: false
+- name: index.html
+  visible: true
+  text: |
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Geo Location</title>
+    </head>
+    <body>
+    <div id="target"></div>
+    <button id="button">Get Geo location</button>
+
+    <script type="text/javascript" src="task.js"></script>
+    </body>
+    </html>
+  learner_created: false
+status: Unchecked
+record: -1

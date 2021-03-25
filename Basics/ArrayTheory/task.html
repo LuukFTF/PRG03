@@ -1,0 +1,37 @@
+<html>
+<p>
+    Zoals je kunt zien in de uitwerking van de vorige opdracht wordt er gebruik gemaakt van <code>-1</code> voor de
+    array.
+    Vergeet niet dat een array bij <code>0</code> begint en je dus een cijfermatige opvraag die bij <code>1</code>
+    begint zoals in dit voorbeeld (1t/m5) moet terugbrengen naar de index uit de array.
+</p>
+<p>
+    Speel vooral nog even met de gegeven code om meer gewend te raken aan hoe je dit kunt oplossen.
+    Hieronder staan ook de andere soorten loops die ook mogelijk waren geweest. Welke je veelal gebruikt
+    is aan jezelf, wij zullen de <code>for of</code> loop (zie vorige opdracht) het meeste gebruiken.
+</p>
+<p>
+    <code>
+        for (let i = 0; i < dishScores.length; i++) {<br/>
+        &nbsp;&nbsp;&nbsp;totalScore += dishScores[i];<br/>
+        &nbsp;&nbsp;&nbsp;console.log(dishScores[i] + ' ' + dishScoreNames[dishScores[i] - 1]);<br/>
+        }
+    </code>
+</p>
+<p>
+    <code>
+        for (let score in dishScores) {<br/>
+        &nbsp;&nbsp;&nbsp;totalScore += dishScores[score];<br/>
+        &nbsp;&nbsp;&nbsp;console.log(dishScores[score] + ' ' + dishScoreNames[dishScores[score] - 1]);<br/>
+        }
+    </code>
+</p>
+<p>
+    <code>
+        dishScores.forEach(function(score){<br/>
+        &nbsp;&nbsp;&nbsp;totalScore += score;<br/>
+        &nbsp;&nbsp;&nbsp;console.log(score + ' ' + dishScoreNames[score - 1]);<br/>
+        });
+    </code>
+</p>
+</html>

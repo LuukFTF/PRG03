@@ -1,0 +1,136 @@
+type: edu
+files:
+- name: task.js
+  visible: true
+  placeholders:
+  - offset: 47
+    length: 0
+    placeholder_text: ""
+    initial_state:
+      length: 0
+      offset: 47
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      /**
+       * @param dishScore
+       * @param score
+       * @returns {number}
+       */
+  - offset: 66
+    length: 20
+    placeholder_text: /* Wat komt hier? */
+    initial_state:
+      length: 20
+      offset: 66
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: dishScore, score
+  - offset: 94
+    length: 51
+    placeholder_text: //Schrijf de code zoals gevraagd in de beschrijving
+    initial_state:
+      length: 51
+      offset: 94
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: return dishScore + score
+  - offset: 150
+    length: 0
+    placeholder_text: ""
+    initial_state:
+      length: 0
+      offset: 150
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      /**
+       * @param numbers
+       * @returns {number}
+       */
+  - offset: 182
+    length: 20
+    placeholder_text: /* Wat komt hier? */
+    initial_state:
+      length: 20
+      offset: 182
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: numbers
+  - offset: 210
+    length: 51
+    placeholder_text: //Schrijf de code zoals gevraagd in de beschrijving
+    initial_state:
+      length: 51
+      offset: 210
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      let average = 0;
+
+          for (let number of numbers) {
+              average += number;
+          }
+
+          return average / numbers.length;
+  text: |-
+    let dishScores = [5, 4, 1, 3, 3, 4, 2, 4, 1];
+
+
+    function addScore(/* Wat komt hier? */)
+    {
+        //Schrijf de code zoals gevraagd in de beschrijving;
+    }
+
+
+    function calculateAverageScore(/* Wat komt hier? */)
+    {
+        //Schrijf de code zoals gevraagd in de beschrijving
+    }
+  learner_created: false
+- name: test/test.js
+  visible: false
+  text: |-
+    /**
+     * Imports task file in order to use functions declared in it
+     * @param f file name or its relative path to task
+     */
+    function import_task_file(f) {
+        const path = require("path");
+        const fs = require("fs");
+        let loadedTask = fs.readFileSync(path.join(__dirname, "..", f)).toString();
+        loadedTask = loadedTask.replace(/let /g, 'var ').replace(/const /g, 'var ');
+        eval.apply(global, [loadedTask]);
+    }
+
+    test('Test if the functions behave as expected', () => {
+        import_task_file("task.js");
+
+        let scoreResult = addScore(2, 3);
+        if (typeof scoreResult === 'undefined') {
+            fail('Je functie "addScore" moet een "return" statement hebben');
+        }
+        if (scoreResult !== 5) {
+            fail('Wanneer ik addScore(2, 3) zou het resultaat 5 moeten zijn, maar het is ' + scoreResult);
+        }
+
+        let avgResult = calculateAverageScore(dishScores);
+        if (typeof avgResult === 'undefined') {
+            fail('Je functie "calculateAverageScore" moet een "return" statement hebben');
+        }
+        if (avgResult !== 3) {
+            fail('Wanneer ik calculateAverageScore(dishScores) aanroep zou het resultaat 3 moeten zijn, maar het is ' + avgResult);
+        }
+        if (calculateAverageScore([0, 1, 2]) !== 1) {
+            fail('Wanneer ik calculateAverageScore([0, 1, 2]) aanroep zou het resultaat 1 moeten zijn, maar het is ' + calculateAverageScore([0, 1, 2]));
+        }
+    });
+  learner_created: false
+status: Unchecked
+record: -1

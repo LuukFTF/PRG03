@@ -1,0 +1,9 @@
+type: theory
+files:
+- name: task.js
+  visible: true
+  text: //Doe waar jij je goed bij voelt, even adem halen!
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

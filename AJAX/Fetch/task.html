@@ -1,0 +1,39 @@
+<html>
+<p>
+    Zoals met veel programmeervraagstukken zul je rond het thema 'AJAX', online een hoop
+    verouderd materiaal tegenkomen. Vroeger draaide alle kennis nog om het XMLHTTPRequest,
+    terwijl het nu draait om de Fetch API. Ook voorbeelden die jQuery, reqwest, Axios of een
+    andere library gebruiken kun je negeren, aangezien wij <strong>geen</strong> library gebruiken.
+</p>
+<p>
+    De <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch API</a> dus,
+    een relatief simpele notatie die data ophaalt van een server. Wanneer de fetch klaar is met de
+    call naar de server (hangt dus af van hoe snel die server is!) wordt er een callback functie
+    uitgevoerd waarin je aan de slag kan met de data die je terug hebt gekregen.
+</p>
+<p>
+    Gegeven is de syntax van de fetch API, ga aan de slag met het volgende:
+</p>
+<ul>
+    <li>
+        Ga eens kijken naar de <a href="https://pokeapi.co/">Pokemon API</a>. Pak een URL van
+        informatie die jij graag wilt hebben en plaatst deze API url in de variable <code>apiUrl</code>
+        als string.
+    </li>
+    <li>
+        Plaatst nu eens een <code>console.log();</code> in de <code>getPokemonsSuccessHandler()</code>
+        functie, zodat je kunt zien welke data je terug krijgt.
+        <div class="hint">
+            Dit is natuurlijk het begin, deze data is direct bruikbaar voor je om toepassingen mee
+            te bouwen en al je kennis uit voorgaande lessen op toe te passen!
+        </div>
+    </li>
+    <li>
+        De <code>getPokemonsErrorHandler()</code> fungeert als functie die gebruikt wordt op het moment
+        dat er iets fout is gegaan op de server. Je kunt hier dan ook gebruik van maken om jouw gebruiker
+        te informeren en geen dood spoor in je applicatie te hebben. Voor nu kun je hier ook een
+        <code>console.log();</code> plaatsen zodat je in ieder geval ziet wat er fout gaat mocht er iets
+        fout gaan.
+    </li>
+</ul>
+</html>

@@ -1,0 +1,52 @@
+<html>
+<p>
+    We gaan door met de laatste oefening van een Web API. In dit geval de
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">localStorage</a>
+    die ook in de hoofdopdracht van het Magazine nodig zal zijn. Deze API kan data tijdelijk in je
+    browser opslaan. Deze data zal blijven bestaan totdat iemand bewust de cache van de browser
+    verwijderd. Oftewel, ook na een pagina refresh kun je bij deze data, zeer vergelijkbaar met
+    hoe je hebt geleerd hoe een Cookie werkt bij de PHP module.
+</p>
+<p>
+    Ik hoor je al denken; "Waarom zou ik dit gebruiken IPV een database?". Zie het als een variant
+    die je voor zeer kleine use-cases kan gebruiken waarbij je geen back-end en/of complexe
+    databases wilt toepassen. Let wel, het zal dus altijd gaan om dingen zoals een todo lijst. Gevoelige
+    informatie van gebruikers is minder aan te raden.
+</p>
+<p>
+    Mocht je willen weten welke varianten van "lokaal opslaan van data" er zijn, kun je
+    <a href="https://blog.sessionstack.com/how-javascript-works-storage-engines-how-to-choose-the-proper-storage-api-da50879ef576">dit artikel</a>
+    lezen om te snappen hoe de varianten van localStorage precies werken. Je hoeft deze termen niet
+    uit te hoofd te kennen, maar het is goed te weten dat er legio aan opties zijn met allemaal eigen
+    use-cases wanneer deze te gebruiken.
+</p>
+<p>
+    Laten we aan de slag gaan met de oefening:
+</p>
+<ul>
+    <li>
+        We beginnen in de <code>formSubmitHandler()</code>. Zorg ervoor dat je de localStorage API gebruikt
+        om 2 waardes op te slaan. 1 waarde met key 'name' waarin de waarde uit het eerste inputveld wordt
+        gezet. En 1 waarde met key 'age' waarin de input uit het tweede inputveld wordt gezet.
+        <div class="hint">
+            Let goed op! We zitten weer in een submit handler van het form. Oftewel, je zult nog iets moeten doen
+            om te voorkomen dat de pagina wordt ververst.. Kijk even terug in de les "Events &gt; Form" als je
+            er niet uit komt!
+        </div>
+    </li>
+    <li>
+        We hebben nu gezorgd dat de waardes worden opgeslagen in de localStorage. Nu willen we zorgen
+        dat als we de pagina refreshen, dat de eerder ingevulde waardes automatisch weer worden getoond.
+        Hiervoor gebruiken we de <code>fillFieldsFromLocalStorage()</code> functie.
+    </li>
+    <li>
+        De laatste stap is het verwijderen van de items uit localStorage. Zorg dat beide keys worden verwijderd
+        en doe dit in de <code>deleteClickHandler()</code> functie.
+        <div class="hint">
+            Omdat je nu weer een lege localStorage hebt zul je zien dat de <code>fillFieldsFromLocalStorage()</code>
+            functie uiteraard geen waardes ophaalt voor in de HTML. Het is het meest nette een controle te schrijven
+            of de localStorage keys wel bestaan voor je ze in de HTML input terug schrijft.
+        </div>
+    </li>
+</ul>
+</html>

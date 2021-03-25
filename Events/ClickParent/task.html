@@ -1,0 +1,37 @@
+<html>
+<p>
+    De events gaan zichzelf steeds meer wijzen, goed bezig! Op basis van de uitwerking
+    van de vorige opdracht gaan we de code nog een stukje optimaliseren. Stel jezelf
+    eens de vraag wat er nu zou gebeuren als er niet 1, maar 30000 nieuwe list items
+    toegevoegd worden?
+</p>
+<p>
+    Inderdaad, 30000 events die in je browser bijgehouden moeten worden! Dat zou toch
+    een stuk efficiënter moeten kunnen, en gelukkig kan dat door het event te verplaatsen
+    naar de parent.
+</p>
+<ul>
+    <li>
+        Verwijder de events die op de <code>&lt;li&gt;</code> staan en zorg dat het event nu
+        op de <code>&lt;ul&gt;</code> (parent) komt te staan.
+    </li>
+    <li>
+        Je zult merken dat bij het klikken op de UL je ook op plekken kunt klikken net naast
+        de tekst. Wanneer je dit doet heb je kans dat de hele <code>&lt;ul&gt;</code> in 1 keer
+        een gele achtergrond krijgt. Voeg een check toe in de <code>liClickHandler</code> die
+        controleert of het element wel echt een <code>&lt;li&gt;</code> is voordat de class
+        toggle uitgevoerd mag worden.
+        <div class="hint">
+            Het moment dat je via het event object (in onze code <strong>e</strong>) de <code>target</code>
+            ophaalt kun je op die target allerlei methods en properties raadplegen. 1 van die properties
+            is de <strong>nodeName</strong> die aangeeft wat voor type HTML element dit was.
+        </div>
+    </li>
+    <li>
+        We hebben nog 1 optimalisatie te doen. Aangezien we de <code>&lt;ul&gt;</code> nu in 2
+        verschillende functies gebruiken (init & formSubmitHandler) doen we 2 keer een
+        <code>document.getElementById();</code> op hetzelfde element. Maak een lege variable
+        genaamd <code>let ul;</code> aan die in <strong>alle</strong> functies gebruikt kan worden.
+    </li>
+</ul>
+</html>

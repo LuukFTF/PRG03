@@ -1,0 +1,66 @@
+type: edu
+files:
+- name: task.js
+  visible: true
+  placeholders:
+  - offset: 149
+    length: 22
+    placeholder_text: //Create the loop here
+    initial_state:
+      length: 22
+      offset: 149
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      for (let score of dishScores) {
+          totalScore += score;
+          console.log(score + ' ' + dishScoreNames[score - 1]);
+      }
+  text: |-
+    let dishScores = [5, 4, 1, 3, 3, 4];
+    let dishScoreNames = ["Bleh", "Mwah", "Oke", "Lekker", "Mag ik nog een keer opscheppen?"];
+    let totalScore = 0;
+
+    //Create the loop here
+  learner_created: false
+- name: test/test.js
+  visible: false
+  text: |-
+    /**
+     * Imports task file in order to use functions declared in it
+     * @param f file name or its relative path to task
+     */
+    function import_task_file(f) {
+        const path = require("path");
+        const fs = require("fs");
+        let loadedTask = fs.readFileSync(path.join(__dirname, "..", f)).toString();
+        loadedTask = loadedTask.replace(/let /g, 'var ').replace(/const /g, 'var ');
+        eval.apply(global, [loadedTask]);
+    }
+
+    test('Check if for loop worked out', () => {
+        console.log = jest.fn();
+        import_task_file("task.js");
+
+        let calculatedScore = dishScores.reduce((a, b) => a + b, 0);
+        if (totalScore !== calculatedScore) {
+            fail('totalScore zou gelijk moeten staan aan: ' + calculatedScore);
+        }
+
+        if (typeof console.log.mock.calls[0] === 'undefined' ||
+            typeof console.log.mock.calls[0][0] === 'undefined' ||
+            typeof console.log.mock.calls[5][0] === 'undefined') {
+            fail('Er is geen console.log geschreven in de loop');
+        }
+
+        console.log.mock.calls.forEach((value, index) => {
+            let formattedString = dishScores[index] + ' ' + dishScoreNames[dishScores[index] - 1];
+            if (value[0] !== formattedString) {
+                fail('De waarde ' + value[0] + ' staat niet gelijk aan ' + formattedString);
+            }
+        });
+    });
+  learner_created: false
+status: Unchecked
+record: -1

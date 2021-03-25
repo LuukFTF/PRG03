@@ -1,0 +1,247 @@
+type: edu
+files:
+- name: task.js
+  visible: true
+  placeholders:
+  - offset: 39
+    length: 0
+    placeholder_text: ""
+    initial_state:
+      length: 0
+      offset: 39
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |2-
+
+      //Global vars
+      let ul;
+  - offset: 227
+    length: 213
+    placeholder_text: |-
+      //Find all li items
+          let li = document.getElementsByTagName("li");
+
+          //Add event listener to all items
+          for (let i = 0; i < li.length; i++) {
+              li[i].addEventListener('click', liClickHandler);
+          }
+    initial_state:
+      length: 213
+      offset: 227
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      //Add event listener on all items at once
+          ul = document.getElementById('todo');
+          ul.addEventListener('click', liClickHandler);
+  - offset: 695
+    length: 71
+    placeholder_text: |-
+      //Retrieve the whole list
+          let ul = document.getElementById('todo');
+    initial_state:
+      length: 71
+      offset: 695
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: //The UL is no global so we don't need to retrieve
+      it here
+  - offset: 873
+    length: 45
+    placeholder_text: li.addEventListener('click', liClickHandler);
+    initial_state:
+      length: 45
+      offset: 873
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: //The li click handler is NOT needed anymore
+  - offset: 1294
+    length: 39
+    placeholder_text: clickedItem.classList.toggle('yellow');
+    initial_state:
+      length: 39
+      offset: 1294
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      //Check if the clicked element is a li
+          if (clickedItem.nodeName === 'LI') {
+              clickedItem.classList.toggle('yellow');
+          }
+  text: |
+    window.addEventListener('load', init);
+
+
+    /**
+     * Execute after document is fully loaded
+     */
+    function init() {
+        let form = document.getElementById('new-todo-form');
+        form.addEventListener('submit', formSubmitHandler);
+
+        //Find all li items
+        let li = document.getElementsByTagName("li");
+
+        //Add event listener to all items
+        for (let i = 0; i < li.length; i++) {
+            li[i].addEventListener('click', liClickHandler);
+        }
+    }
+
+    /**
+     * Handler for the form submit event
+     *
+     * @param e
+     */
+    function formSubmitHandler(e) {
+        e.preventDefault(); //Leave this one out to see te result
+
+        //Get value from input
+        let textInput = document.getElementById('todo-input').value;
+        //Retrieve the whole list
+        let ul = document.getElementById('todo');
+
+        //Create new li element
+        let li = document.createElement('li');
+        li.innerHTML = textInput;
+        li.addEventListener('click', liClickHandler);
+
+        //Empty the current form item so we can add another
+        document.getElementById('todo-input').value = "";
+        document.getElementById('message').innerHTML = textInput + " is toegevoegd";
+
+        //Add item to the list
+        ul.appendChild(li);
+    }
+
+    /**
+     * Handler for clicking on a list item
+     *
+     * @param e
+     */
+    function liClickHandler(e) {
+        let clickedItem = e.target;
+
+        clickedItem.classList.toggle('yellow');
+    }
+  learner_created: false
+- name: test/test.js
+  visible: false
+  text: |-
+    /**
+     * Imports task file in order to use functions declared in it
+     * @param f file name or its relative path to task
+     */
+    function import_task_file(f) {
+        const path = require("path");
+        const fs = require("fs");
+        let loadedTask = fs.readFileSync(path.join(__dirname, "..", f)).toString();
+        loadedTask = loadedTask.replace(/let /g, 'var ').replace(/const /g, 'var ');
+        eval.apply(global, [loadedTask]);
+    }
+
+    test('Test click event on parent', () => {
+        document.body.innerHTML = getHTML();
+        import_task_file("task.js");
+        dispatchEvent(new Event("load"));
+
+        //Test first li click
+        let firstLi = document.getElementsByTagName('li')[0];
+        firstLi.click();
+        if (!firstLi.classList.contains('yellow')) {
+            fail('Bij het aanklikken van het eerste list-item krijgt hij geen class "yellow"');
+        }
+
+        let inputElement = document.getElementById("todo-input");
+
+        let evt = new CustomEvent("submit");
+        document.getElementById('new-todo-form').dispatchEvent(evt);
+
+        if (typeof formSubmitHandler !== 'function') {
+            fail('De function "formSubmitHandler(e)" moet je wel laten staan!');
+        }
+
+        let createdLiItem = document.getElementsByTagName('li')[3];
+        if (typeof createdLiItem === 'undefined' || !(createdLiItem instanceof HTMLLIElement)) {
+            fail('Er is na submit geen nieuw list-item aan de HTML toegevoegd');
+        }
+        if (createdLiItem.innerHTML !== inputElement.value) {
+            fail('De inhoud van het nieuwe list-item staat niet gelijk aan "' + inputElement.value + '" maar is "' + createdLiItem.innerHTML + '"');
+        }
+
+        createdLiItem.click();
+        if (!createdLiItem.classList.contains('yellow')) {
+            fail('Bij het aanklikken van een nieuw aangemaakt list-item krijgt hij geen class "yellow". Kijk goed of je de event listener hebt verwijderd op het nieuwe list-item!');
+        }
+
+        let jestUl = document.getElementById('todo');
+        jestUl.click();
+        if (jestUl.classList.contains('yellow')) {
+            fail('Bij het aanklikken van de UL krijgt deze de class "yellow". Dat mag niet, zorg dat je hier een IF check voor schrijft zodat alleen een LI die class kan krijgen');
+        }
+
+        if (typeof ul === 'undefined' || !(ul instanceof HTMLUListElement)) {
+            fail('De UL is niet als globaal aangemaakt, of is nog niet gekoppeld aan het HTML element met ID "todo" in de init functie')
+        }
+    });
+
+    function getHTML() {
+        return `
+    <h1>Events - click</h1>
+    <div id="message"></div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad asperiores autem deleniti facere illo illum impedit libero maxime minus modi officiis, possimus qui quia quidem, tenetur totam! Fuga, id.</p>
+    <ul id="todo">
+        <li>Finish creating a todo list</li>
+        <li>Feed the cat</li>
+        <li>Watch Adventure Time</li>
+    </ul>
+    <form id="new-todo-form" method="post">
+        <label for="todo-input">Text</label>
+        <input type="text" value="" id="todo-input"/>
+        <input type="submit" value="Add item"/>
+    </form>
+        `;
+    }
+  learner_created: false
+- name: style.css
+  visible: true
+  text: |
+    .yellow {
+        background-color: yellow;
+    }
+  learner_created: false
+- name: index.html
+  visible: true
+  text: |
+    <!doctype html>
+    <html lang="nl">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Events - click</title>
+        <link href="style.css" type="text/css" rel="stylesheet"/>
+    </head>
+    <body>
+    <h1>Events - click</h1>
+    <div id="message"></div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet architecto asperiores cum dolorem excepturi illum, iste itaque iusto minus necessitatibus nemo nobis nulla omnis quaerat vel voluptatibus. Perspiciatis, rerum.</p>
+    <form id="new-todo-form" method="post">
+        <label for="todo-input">Text</label>
+        <input type="text" value="" id="todo-input"/>
+        <input type="submit" value="Add item"/>
+    </form>
+    <ul id="todo">
+        <li>Finish creating a todo list</li>
+        <li>Feed the cat</li>
+        <li>Watch Adventure Time</li>
+    </ul>
+    <script type="text/javascript" src="task.js"></script>
+    </body>
+    </html>
+  learner_created: false
+status: Unchecked
+record: -1

@@ -1,0 +1,12 @@
+type: theory
+files:
+- name: task.js
+  visible: true
+  text: //Nothing to do here, read documentation and move on :)
+  learner_created: false
+- name: client-server-model-ajax.jpg
+  visible: false
+  learner_created: false
+status: Unchecked
+record: -1
+post_submission_on_open: true

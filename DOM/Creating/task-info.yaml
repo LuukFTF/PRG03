@@ -1,0 +1,98 @@
+type: edu
+files:
+- name: task.js
+  visible: true
+  placeholders:
+  - offset: 186
+    length: 0
+    placeholder_text: ""
+    initial_state:
+      length: 0
+      offset: 186
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: |-
+      //Retrieve the whole list
+          let ul = document.getElementById('todo');
+
+          //Create a new list item
+          let li = document.createElement('li');
+          li.innerHTML = 'Watch the new X-Files';
+
+          //Append new item to the list
+          ul.appendChild(li);
+  text: "//Get the button & add event\nlet button = document.getElementById('button');\n\
+    button.addEventListener('click', addItem);\n\n/**\n * Add the new item to the\
+    \ list\n */\nfunction addItem() {\n    \n}\n"
+  learner_created: false
+- name: test/test.js
+  visible: false
+  text: |-
+    /**
+     * Imports task file in order to use functions declared in it
+     * @param f file name or its relative path to task
+     */
+    function import_task_file(f) {
+        const path = require("path");
+        const fs = require("fs");
+        let loadedTask = fs.readFileSync(path.join(__dirname, "..", f)).toString();
+        loadedTask = loadedTask.replace(/let /g, 'var ').replace(/const /g, 'var ');
+        eval.apply(global, [loadedTask]);
+    }
+
+    test('Test DOM creating', () => {
+        document.body.innerHTML = getHTML();
+        import_task_file("task.js");
+        document.getElementById('button').click();
+
+        if (typeof addItem !== 'function') {
+            fail('De function "addItem" if niet aangemaakt');
+        }
+
+        let createdLiItem = document.getElementsByTagName('li')[3];
+        if (typeof createdLiItem === 'undefined' || !(createdLiItem instanceof HTMLLIElement)) {
+            fail('Er is geen nieuw list-item aan de HTML toegevoegd');
+        }
+        if (createdLiItem.innerHTML !== 'Watch the new X-Files') {
+            fail('De inhoud van het nieuwe list-tem staat niet gelijk aan "Watch the new X-Files" maar is "' + createdLiItem.innerHTML + '"');
+        }
+    });
+
+    function getHTML() {
+        return `
+    <h1>Creating dom elements</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam architecto aspernatur beatae commodi dicta dolor ea est et exercitationem explicabo, iure quibusdam, repellat repellendus suscipit totam vel velit voluptas voluptatibus?</p>
+    <ul id="todo">
+        <li>Finish creating a todo list</li>
+        <li>Feed the cat</li>
+        <li>Watch Adventure Time</li>
+    </ul>
+    <button id="button">Add item</button>
+        `;
+    }
+  learner_created: false
+- name: index.html
+  visible: true
+  text: |
+    <!doctype html>
+    <html lang="nl">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Creating dom elements</title>
+    </head>
+    <body>
+    <h1>Creating dom elements</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam aspernatur, corporis in molestiae nisi odio quod. Debitis eius illum perferendis placeat reprehenderit voluptatibus. Accusamus aliquid facere in laboriosam nostrum quae?</p>
+    <ul id="todo">
+        <li>Finish creating a todo list</li>
+        <li>Feed the cat</li>
+        <li>Watch Adventure Time</li>
+    </ul>
+    <button id="button">Add item</button>
+    <script type="text/javascript" src="task.js"></script>
+    </body>
+    </html>
+  learner_created: false
+status: Unchecked
+record: -1

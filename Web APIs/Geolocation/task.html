@@ -1,0 +1,45 @@
+<html>
+<p>
+    Nu we weten wat Web API's zijn gaan we kijken naar de eerste toepassing van
+    een Web API, namelijk je geo locatie! Er zijn veel applicaties te bedenken
+    waar het handig is iemands locatie te vragen. Om berekeningen te doen van afstanden,
+    het tonen van een locatie op een kaart of om de juiste standaard taal van de website
+    te activeren voor een bezoeker.
+</p>
+<p>
+    Om toegang te krijgen tot de locatie moeten we de <code>navigator.geolocation</code>
+    code gebruiken. De <code>navigator</code> is het object van jouw browser, en 1 van de
+    mogelijke properties is de <code>geolocation</code>.
+</p>
+<ul>
+    <li>
+        Koppel de 2 momenteel nog lege global variable aan de 2 HTML elementen. Gebruik hiervoor
+        de kennis van het ophalen van HTML elementen uit de les "DOM &gt; Selecting".
+        <div class="hint">
+            Valt het je op dat we nu voor HTML elementen een <strong>$</strong> teken voor de variabele
+            naam zetten? Op die manier maken we onderscheid tussen normale variabele en variabele waarvan
+            we weten dat er een HTML element in zal zitten. Niet verplicht uiteraard, maar wel een handige
+            conventie om meer overzicht te hebben in je code.
+        </div>
+    </li>
+    <li>
+        Koppel nu een click event aan de <code>$button</code> die de functie <code>buttonClickHandler</code>
+        uitvoert.
+    </li>
+    <li>
+        Gebruik nu de <code>navigator.geoLocation</code> om bij het ophalen van de huidige locatie
+        de functie <code>showCurrentLocation</code> aan te roepen. Als je twijfelt over welke method je
+        moet gebruiken, kijk dan eens op de
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API">MDN documentatie</a>.
+        <div class="hint">
+            Zoals je in de uitwerking kunt zien gebruiken we naast <code>getCurrentPosition()</code>, ook de
+            <code>watchPosition()</code> functie, dit om te zorgen dat als iemand gaat lopen de locatie netjes
+            update in de HTML.
+        </div>
+    </li>
+    <li>
+        Als laatste stap plaats je de coordination (latitude, longitude) in de HTML van je <code>$target</code>
+        element via de volgende notatie: <em>51.81400579, 4.6125395</em>
+    </li>
+</ul>
+</html>

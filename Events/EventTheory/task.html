@@ -1,0 +1,43 @@
+<html>
+<p>
+    Lekker bezig! We hebben de oefeningen rondom events goed afgesloten en kunnen
+    even ademhalen. Dit is een goed moment om nog even een aantal dingen te
+    benoemen die je mee zult nemen met elke toekomstige opdracht.
+</p>
+<ul>
+    <li>
+        <strong>Global variables zijn zeer waardevol.</strong> Bedenk voor je een
+        opdracht maakt altijd goed welke variabelen in meerdere functies nodig zijn en
+        maak deze global.
+    </li>
+    <li>
+        <strong>Haal HTML elementen maar 1 keer op.</strong> Ga dus ook niet in meerdere
+        functies hetzelfde HTML element ophalen met Javascript, maar doe dit maar 1 keer,
+        dit zorgt in grotere applicaties voor betere performance.
+        <div class="hint">
+            Als je goed hebt opgelet zie je dat er in de huidige code nog 1 element 2 keer
+            wordt aangeroepen, voel je vrij om dit zelf aan te passen als je nog wilt oefenen.
+        </div>
+    </li>
+    <li>
+        <strong>Elk event kost performance.</strong> We zagen in onze vorige opdracht al dat
+        met een simpele code aanpassing we 30000 potentiële events hebben verkleind naar 1 event.
+        Besef je goed dat (te) veel events je applicatie trager kunnen maken, kijk dus goed uit
+        en probeer slim het parent element te gebruiken wanneer er meerdere children zijn die
+        allemaal hetzelfde event nodig hebben.
+    </li>
+    <li>
+        <strong>Bubbling & capturing is een ding!</strong> Het feit dat je een event op een parent
+        kunt zetten heeft te maken met het feit dat elke klik op een child element uiteindelijk terug naar
+        de hoogte parent gaat (bubbling). We gaan dit nog in de les laten zien, maar
+        <a href="https://www.tutorialspoint.com/what-is-event-bubbling-and-capturing-in-javascript">lees hier een simpel voorbeeld over het verschil tussen beide</a>.
+    </li>
+    <li>
+        <strong>e.target vs. e.currentTarget.</strong> Wanneer je in een event callback functie zit
+        kun je met e.target het huidige element waarop het event heeft plaatsgevonden ophalen. Dit hebben we
+        in ons voorbeeld gebruikt om de class "yellow" toe te voegen. Als je in ons voorbeeld e.target zou vervangen
+        door e.currentTarget zal hij altijd de UL pakken, terwijl e.target het element pakt waar je op klikt (
+        de UL of 1 van de LI's)
+    </li>
+</ul>
+</html>

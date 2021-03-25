@@ -1,0 +1,44 @@
+<html>
+<p>
+    We gaan door met een tweede Web API, namelijk de battery. Via deze API kun je de status van de
+    batterij van je device bijhouden. Dit kan handig zijn om gebruikers te waarschuwen of bijvoorbeeld
+    minder features aan te roepen als de batterij in het rood komt.
+</p>
+<p>
+    Net zoals bij de geolocation heeft het <code>navigator</code> object ook een optie voor de battery,
+    in dit geval een method genaamd <code>getBattery()</code>. We gaan aan de slag met de volgende
+    opdrachten:
+</p>
+<ul>
+    <li>
+        We beginnen weer rustig, koppel de 2 HTML elementen aan de 2 global variables. Het is goed dit
+        te blijven oefenen.
+    </li>
+    <li>
+        Voor de functie <code>getBatteryStatus()</code> is de code al gegeven omdat deze iets complexer is.
+        Hier wordt gebruik gemaakt van 2 principes die we dit kwartaal niet zullen behandelen, namelijk
+        <a href="https://www.freecodecamp.org/news/javascript-es6-promises-for-beginners-resolve-reject-and-chaining-explained/">Promises</a>
+        en <a href="https://codeburst.io/javascript-arrow-functions-for-beginners-926947fc0cdc">Arrow functions</a>.
+        We raden je zeker aan beide links te lezen om in ieder geval de basis te begrijpen zodat je de code
+        iets beter kunt begrijpen.
+    </li>
+    <li>
+        Zorg ervoor dat het element <code>$targetStatus</code> een tekst toont waarin het percentage van de
+        batterij getoond wordt (100%, 41%, oid). Doe dit in de functie <code>showBatteryStatus()</code>
+        <div class="hint">
+            Als je een console.log() uitvoert op de <strong>battery</strong> variable kun je snel bepalen
+            welke properties je nodig hebt om deze opdrachten goed uit te voeren.
+        </div>
+    </li>
+    <li>
+        Zorg ervoor dat het element <code>$targetRemaining</code> een tekst toont die aangeeft hoeveel uur de
+        batterij nog kan meegaan. Het bericht moet als volgt getoond worden: <strong>"Je apparaat zal uitgaan
+        over 2,41 uur"</strong> (het getal is dynamisch uiteraard)
+    </li>
+    <li>
+        Zoals je zult merken krijg je geen getal, maar <code>Infinity</code> terug uit de batterij status wanneer
+        je aangesloten bent op stroom. Zorg dat de tekst in <code>$targetRemaining</code> in dit geval een ander
+        bericht toont, namelijk <strong>"Je apparaat zal niet uitgaan zolang je aan de stroom zit aangesloten!"</strong>
+    </li>
+</ul>
+</html>

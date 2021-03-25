@@ -1,0 +1,71 @@
+<html>
+<p>
+    Nu we het DOM hebben leren kennen, gaan we ons verdiepen in Events. In de vorige opdracht zagen
+    we stiekem al een event voorbij komen:
+</p>
+<p>
+    <code>
+        let button = document.getElementById('button');<br/>
+        button.addEventListener('click', addItem);
+    </code>
+</p>
+<p>
+    Binnen deze code zien we dat een element wordt opgehaald op basis van het ID.
+    Daarna wordt via <code>element.addEventListener(eventType, callback);</code> bepaald
+    naar welk event wordt geluisterd en wat er moet gebeuren.
+</p>
+<ul>
+    <li>
+        In ons voorbeeld is het <em>element</em> onze <strong>button</strong>.
+    </li>
+    <li>
+        In ons voorbeeld is het <em>eventType</em> een <strong>click</strong> op de
+        <strong>button</strong>.
+    </li>
+    <li>
+        In ons voorbeeld is de <em>callback</em> de functie <strong>addItem</strong>
+        die wordt uitgevoerd na een <strong>click</strong> op de <strong>button</strong>.
+    </li>
+</ul>
+<p>
+    De structuur van .addEventListener wordt op <strong>elk</strong> event toegepast. Wat
+    dus niet de bedoeling is, is het schrijven van <code>element.onclick(callback)</code>,
+    of in de html <code>&lt;button onclick="callback()"&gt;</code>. Het is zeer belangrijk
+    dit vanaf het eerste moment goed te doen en niet af te wijken.
+</p>
+<p>
+    In de gegeven opdracht staat ook al 1 event genoteerd, namelijk het <strong>load</strong>
+    event op het <strong>window</strong>, die de <strong>init</strong> functie als callback
+    uitvoert. Dit zal vanaf nu in elk voorbeeld en in elke opdracht als eerste terugkomen.
+    <br/><br/>
+    De belangrijkste reden hiervoor is dat je daarmee garandeert dat alle HTML elementen ingeladen zijn
+    voordat je Javascript gaat gebruiken. Zoals beschreven in opdracht "DOM &gt; Playground" KAN de Javascript
+    ook in de <code>&lt;head&gt;</code> van je pagina worden ingeladen en dan is dit event dé oplossing.
+</p>
+<p>
+    Genoeg theorie voor nu! Ga aan de slag met de volgende opdrachten op basis van de gegeven code:
+</p>
+<ul>
+    <li>
+        Schrijf in de init functie de code om een 'submit' event op het formulier met ID 'new-todo-form'
+        af te vangen. De callback is de functie <code>addItem</code> die al in de code staat gegeven.
+    </li>
+    <li>
+        Je drukt op de knop 'add item' en het enige wat je ziet gebeuren is dat je pagina ververst. Hoe
+        kan dit nu gebeuren? Zoals je ziet krijg je de parameter 'e' mee. 'e' staat voor 'event'
+        en bevat alle informatie over het zojuist uitgevoerde event (in ons geval de 'submit').
+        <br/><br/>
+        Een krachtige optie van events die een standaardwerking hebben (forms, anchor links, etc), is dat je
+        deze standaardwerking kunt 'blokkeren'. Zet in je <code>addItem</code> functie de code
+        <code>e.preventDefault();</code>. Zoals je zult merken wordt het formulier niet meer verstuurd!
+    </li>
+    <li>
+        Nu mag jij hem afmaken! Gebruik de kennis uit het hoofdstuk "DOM" en maak een nieuwe
+        <code>&lt;li&gt;</code> aan met daarin de ingevoerde tekst uit het inputveld.
+    </li>
+    <li>
+        (Bonus) Plaats in het element met ID 'message' een melding dat het item is toegevoegd aan de lijst.
+        Maak daarbij ook het invoerveld leeg zodat er weer een nieuw item kan worden toegevoegd.
+    </li>
+</ul>
+</html>
