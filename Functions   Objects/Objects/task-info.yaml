@@ -10,7 +10,7 @@ files:
       length: 0
       offset: 17
     initialized_from_dependency: false
-    selected: false
+    selected: true
     status: Unchecked
     encrypted_possible_answer: |-
       name: 'spaghetti',

@@ -3,8 +3,8 @@ let dishScoreNames = ["Bleh", "Mwah", "Oke", "Lekker", "Mag ik nog een keer opsc
 let totalScore = 0;
 
 for (let score of dishScores) {
+    console.log(score + ' ' + dishScoreNames[score]);
     totalScore += score;
-    console.log(score + ' ' + dishScoreNames[score - 1]);
 }
 
 console.log('Total score: ' + totalScore);

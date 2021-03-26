@@ -3,15 +3,15 @@ files:
 - name: task.js
   visible: true
   placeholders:
-  - offset: 149
-    length: 22
+  - offset: 503
+    length: 1
     placeholder_text: //Create the loop here
     initial_state:
       length: 22
       offset: 149
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Failed
     encrypted_possible_answer: |-
       for (let score of dishScores) {
           totalScore += score;
@@ -62,5 +62,9 @@ files:
         });
     });
   learner_created: false
-status: Unchecked
+status: Failed
+feedback:
+  message: De waarde 2 Never wanna eat here again staat niet gelijk aan 2 Gonna go
+    now, thats how bad it is
+  time: Fri, 26 Mar 2021 16:54:43 UTC
 record: -1

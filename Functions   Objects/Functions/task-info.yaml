@@ -11,7 +11,7 @@ files:
       offset: 47
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       /**
        * @param dishScore
@@ -19,26 +19,26 @@ files:
        * @returns {number}
        */
   - offset: 66
-    length: 20
+    length: 14
     placeholder_text: /* Wat komt hier? */
     initial_state:
       length: 20
       offset: 66
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: dishScore, score
-  - offset: 94
-    length: 51
+  - offset: 87
+    length: 22
     placeholder_text: //Schrijf de code zoals gevraagd in de beschrijving
     initial_state:
       length: 51
       offset: 94
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: return dishScore + score
-  - offset: 150
+  - offset: 114
     length: 0
     placeholder_text: ""
     initial_state:
@@ -46,31 +46,31 @@ files:
       offset: 150
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       /**
        * @param numbers
        * @returns {number}
        */
-  - offset: 182
-    length: 20
+  - offset: 146
+    length: 6
     placeholder_text: /* Wat komt hier? */
     initial_state:
       length: 20
       offset: 182
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: numbers
-  - offset: 210
-    length: 51
+  - offset: 184
+    length: 118
     placeholder_text: //Schrijf de code zoals gevraagd in de beschrijving
     initial_state:
       length: 51
       offset: 210
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       let average = 0;
 
@@ -132,5 +132,8 @@ files:
         }
     });
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Fri, 26 Mar 2021 17:02:38 UTC
 record: -1
