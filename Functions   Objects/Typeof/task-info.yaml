@@ -10,5 +10,10 @@ files:
 - name: task.js
   visible: true
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Lekker bezig!
+  time: Fri, 26 Mar 2021 17:24:04 UTC
 record: -1
+selected_options:
+- 1

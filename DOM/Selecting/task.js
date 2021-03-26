@@ -13,4 +13,5 @@ for (let i = 0; i < receipts.length; i++) {
     console.log("afgerond getal is " + total.toFixed(2));
 }
 
-//Los de opdracht hier op
+let totalPlaceholder = document.getElementById('total');
+totalPlaceholder.innerHTML = total.toFixed(2)

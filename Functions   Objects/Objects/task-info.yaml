@@ -4,14 +4,14 @@ files:
   visible: true
   placeholders:
   - offset: 17
-    length: 0
+    length: 402
     placeholder_text: ""
     initial_state:
       length: 0
       offset: 17
     initialized_from_dependency: false
     selected: true
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |-
       name: 'spaghetti',
           scores: [3, 5, 2, 2, 4],
@@ -92,5 +92,8 @@ files:
         return total / scores.length;
     }
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Fri, 26 Mar 2021 17:16:53 UTC
 record: -1

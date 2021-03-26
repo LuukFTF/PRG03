@@ -4,14 +4,14 @@ files:
   visible: true
   placeholders:
   - offset: 476
-    length: 25
+    length: 102
     placeholder_text: //Los de opdracht hier op
     initial_state:
       length: 25
       offset: 476
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       let totalPlaceholder = document.getElementById('total');
       totalPlaceholder.innerHTML = total.toFixed(2);
@@ -116,5 +116,8 @@ files:
     </body>
     </html>
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Fri, 26 Mar 2021 17:37:27 UTC
 record: -1

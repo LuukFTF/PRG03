@@ -3,15 +3,15 @@ files:
 - name: task.js
   visible: true
   placeholders:
-  - offset: 186
-    length: 0
+  - offset: 162
+    length: 199
     placeholder_text: ""
     initial_state:
       length: 0
       offset: 186
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       //Retrieve the whole list
           let ul = document.getElementById('todo');
@@ -94,5 +94,8 @@ files:
     </body>
     </html>
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Fri, 26 Mar 2021 18:17:24 UTC
 record: -1
