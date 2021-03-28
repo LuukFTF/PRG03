@@ -11,7 +11,7 @@ files:
       offset: 17
     initialized_from_dependency: false
     selected: true
-    status: Solved
+    status: Unchecked
     encrypted_possible_answer: |-
       name: 'spaghetti',
           scores: [3, 5, 2, 2, 4],

@@ -11,7 +11,7 @@ files:
       offset: 47
     initialized_from_dependency: false
     selected: false
-    status: Solved
+    status: Unchecked
     encrypted_possible_answer: |-
       /**
        * @param dishScore
@@ -26,7 +26,7 @@ files:
       offset: 66
     initialized_from_dependency: false
     selected: true
-    status: Solved
+    status: Unchecked
     encrypted_possible_answer: dishScore, score
   - offset: 87
     length: 22
@@ -36,7 +36,7 @@ files:
       offset: 94
     initialized_from_dependency: false
     selected: true
-    status: Solved
+    status: Unchecked
     encrypted_possible_answer: return dishScore + score
   - offset: 114
     length: 0
@@ -46,7 +46,7 @@ files:
       offset: 150
     initialized_from_dependency: false
     selected: false
-    status: Solved
+    status: Unchecked
     encrypted_possible_answer: |-
       /**
        * @param numbers
@@ -60,7 +60,7 @@ files:
       offset: 182
     initialized_from_dependency: false
     selected: true
-    status: Solved
+    status: Unchecked
     encrypted_possible_answer: numbers
   - offset: 184
     length: 118
@@ -70,7 +70,7 @@ files:
       offset: 210
     initialized_from_dependency: false
     selected: true
-    status: Solved
+    status: Unchecked
     encrypted_possible_answer: |-
       let average = 0;
 

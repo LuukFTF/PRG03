@@ -4,26 +4,26 @@ files:
   visible: true
   placeholders:
   - offset: 156
-    length: 0
+    length: 97
     placeholder_text: ""
     initial_state:
       length: 0
       offset: 156
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       let form = document.getElementById('new-todo-form');
           form.addEventListener('submit', addItem);
-  - offset: 241
-    length: 0
+  - offset: 338
+    length: 300
     placeholder_text: ""
     initial_state:
       length: 0
       offset: 241
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       //Make sure we won't actually send the form
           e.preventDefault();
@@ -132,5 +132,8 @@ files:
     </body>
     </html>
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Sun, 28 Mar 2021 17:28:42 UTC
 record: -1

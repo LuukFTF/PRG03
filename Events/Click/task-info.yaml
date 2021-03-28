@@ -10,8 +10,8 @@ files:
       length: 0
       offset: 226
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Failed
     encrypted_possible_answer: |-
       //Find all li items
           let li = document.getElementsByTagName('li');
@@ -28,7 +28,7 @@ files:
       offset: 660
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Failed
     encrypted_possible_answer: |
       li.addEventListener('click', liClickHandler);
   - offset: 907
@@ -39,7 +39,7 @@ files:
       offset: 907
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Failed
     encrypted_possible_answer: |
       /**
        * Handler for clicking on a list item
@@ -166,5 +166,8 @@ files:
         background-color: yellow;
     }
   learner_created: false
-status: Unchecked
+status: Failed
+feedback:
+  message: Bij het aanklikken van het eerste list-item krijgt hij geen class "yellow"
+  time: Sun, 28 Mar 2021 20:23:20 UTC
 record: -1

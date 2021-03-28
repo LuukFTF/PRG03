@@ -11,7 +11,7 @@ files:
       offset: 186
     initialized_from_dependency: false
     selected: true
-    status: Solved
+    status: Unchecked
     encrypted_possible_answer: |-
       //Retrieve the whole list
           let ul = document.getElementById('todo');
