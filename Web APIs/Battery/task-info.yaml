@@ -4,26 +4,26 @@ files:
   visible: true
   placeholders:
   - offset: 118
-    length: 42
+    length: 172
     placeholder_text: //Koppel HTML elementen aan de global vars
     initial_state:
       length: 42
       offset: 118
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       $targetStatus = document.getElementById('target-status');
           $targetRemaining = document.getElementById('target-remaining');
-  - offset: 674
-    length: 0
+  - offset: 799
+    length: 404
     placeholder_text: ""
     initial_state:
       length: 0
       offset: 674
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       $targetStatus.innerHTML = ((battery.level * 100) + '%');
           let remainingTime = '';
@@ -132,5 +132,8 @@ files:
     </body>
     </html>
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Sun, 30 May 2021 17:19:10 UTC
 record: -1

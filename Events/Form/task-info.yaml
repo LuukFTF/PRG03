@@ -11,7 +11,7 @@ files:
       offset: 156
     initialized_from_dependency: false
     selected: true
-    status: Solved
+    status: Unchecked
     encrypted_possible_answer: |-
       let form = document.getElementById('new-todo-form');
           form.addEventListener('submit', addItem);
@@ -23,7 +23,7 @@ files:
       offset: 241
     initialized_from_dependency: false
     selected: true
-    status: Solved
+    status: Unchecked
     encrypted_possible_answer: |-
       //Make sure we won't actually send the form
           e.preventDefault();

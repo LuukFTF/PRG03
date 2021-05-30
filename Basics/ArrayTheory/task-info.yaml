@@ -14,8 +14,6 @@ files:
 
     console.log('Total score: ' + totalScore);
   learner_created: false
-status: Solved
-feedback:
-  time: Fri, 26 Mar 2021 16:50:00 UTC
+status: Unchecked
 record: -1
 post_submission_on_open: true

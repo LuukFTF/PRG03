@@ -4,14 +4,14 @@ files:
   visible: true
   placeholders:
   - offset: 226
-    length: 0
+    length: 153
     placeholder_text: ""
     initial_state:
       length: 0
       offset: 226
     initialized_from_dependency: false
     selected: true
-    status: Failed
+    status: Solved
     encrypted_possible_answer: |-
       //Find all li items
           let li = document.getElementsByTagName('li');
@@ -20,26 +20,26 @@ files:
           for (let i = 0; i < li.length; i++) {
               li[i].addEventListener('click', liClickHandler);
           }
-  - offset: 660
-    length: 0
+  - offset: 813
+    length: 47
     placeholder_text: ""
     initial_state:
       length: 0
       offset: 660
     initialized_from_dependency: false
-    selected: false
-    status: Failed
+    selected: true
+    status: Solved
     encrypted_possible_answer: |
       li.addEventListener('click', liClickHandler);
-  - offset: 907
-    length: 0
+  - offset: 1108
+    length: 108
     placeholder_text: ""
     initial_state:
       length: 0
       offset: 907
     initialized_from_dependency: false
-    selected: false
-    status: Failed
+    selected: true
+    status: Solved
     encrypted_possible_answer: |
       /**
        * Handler for clicking on a list item
@@ -166,8 +166,8 @@ files:
         background-color: yellow;
     }
   learner_created: false
-status: Failed
+status: Solved
 feedback:
-  message: Bij het aanklikken van het eerste list-item krijgt hij geen class "yellow"
-  time: Sun, 28 Mar 2021 20:23:20 UTC
+  message: Congratulations!
+  time: Sat, 29 May 2021 13:32:04 UTC
 record: -1

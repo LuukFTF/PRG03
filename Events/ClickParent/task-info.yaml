@@ -4,20 +4,20 @@ files:
   visible: true
   placeholders:
   - offset: 39
-    length: 0
+    length: 7
     placeholder_text: ""
     initial_state:
       length: 0
       offset: 39
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |2-
 
       //Global vars
       let ul;
-  - offset: 227
-    length: 213
+  - offset: 234
+    length: 87
     placeholder_text: |-
       //Find all li items
           let li = document.getElementsByTagName("li");
@@ -30,14 +30,14 @@ files:
       length: 213
       offset: 227
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       //Add event listener on all items at once
           ul = document.getElementById('todo');
           ul.addEventListener('click', liClickHandler);
-  - offset: 695
-    length: 71
+  - offset: 572
+    length: 0
     placeholder_text: |-
       //Retrieve the whole list
           let ul = document.getElementById('todo');
@@ -45,29 +45,29 @@ files:
       length: 71
       offset: 695
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: //The UL is no global so we don't need to retrieve
       it here
-  - offset: 873
-    length: 45
+  - offset: 675
+    length: 0
     placeholder_text: li.addEventListener('click', liClickHandler);
     initial_state:
       length: 45
       offset: 873
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: //The li click handler is NOT needed anymore
-  - offset: 1294
-    length: 39
+  - offset: 1051
+    length: 90
     placeholder_text: clickedItem.classList.toggle('yellow');
     initial_state:
       length: 39
       offset: 1294
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       //Check if the clicked element is a li
           if (clickedItem.nodeName === 'LI') {
@@ -243,5 +243,8 @@ files:
     </body>
     </html>
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Sun, 30 May 2021 16:50:53 UTC
 record: -1

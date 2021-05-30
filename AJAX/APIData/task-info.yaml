@@ -3,7 +3,7 @@ files:
 - name: task.js
   visible: true
   placeholders:
-  - offset: 114
+  - offset: 132
     length: 0
     placeholder_text: ""
     initial_state:
@@ -11,22 +11,22 @@ files:
       offset: 114
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |
       let loadPokemon = false;
-  - offset: 217
-    length: 47
+  - offset: 235
+    length: 84
     placeholder_text: $button.addEventListener('click', getPokemons);
     initial_state:
       length: 47
       offset: 217
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: $button.addEventListener('click', () => ajaxRequest(apiUrl,
       getPokemonsSuccessHandler));
-  - offset: 370
-    length: 303
+  - offset: 425
+    length: 308
     placeholder_text: |-
       function getPokemons() {
           fetch(apiUrl)
@@ -43,8 +43,8 @@ files:
       length: 303
       offset: 370
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       function ajaxRequest(url, successCallback) {
           fetch(url)
@@ -57,15 +57,15 @@ files:
               .then(successCallback)
               .catch(ajaxRequestErrorHandler);
       }
-  - offset: 813
-    length: 18
+  - offset: 873
+    length: 394
     placeholder_text: console.log(data);
     initial_state:
       length: 18
       offset: 813
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       //Prevent this function from being executed more than once
           if (loadPokemon === true) {
@@ -90,15 +90,15 @@ files:
 
           //Prevent to load double data by switching the state
           loadPokemon = true;
-  - offset: 834
-    length: 0
+  - offset: 1678
+    length: 1
     placeholder_text: ""
     initial_state:
       length: 0
       offset: 834
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |2
 
       /**
@@ -132,8 +132,8 @@ files:
           }
           $types.innerHTML = types.join(', ');
       }
-  - offset: 834
-    length: 166
+  - offset: 1678
+    length: 163
     placeholder_text: |-
       /**
        * Do something useful with the error you got back from the external API
@@ -147,8 +147,8 @@ files:
       length: 166
       offset: 834
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |2-
 
       /**
@@ -946,5 +946,8 @@ files:
       ]
     }
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Sun, 30 May 2021 20:23:58 UTC
 record: -1

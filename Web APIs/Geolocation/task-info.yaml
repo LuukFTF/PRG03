@@ -4,49 +4,49 @@ files:
   visible: true
   placeholders:
   - offset: 103
-    length: 53
+    length: 151
     placeholder_text: //Koppel de 2 global variabelen aan de HTML elementen
     initial_state:
       length: 53
       offset: 103
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       $target = document.getElementById('target');
           $button = document.getElementById('button');
-  - offset: 339
-    length: 23
+  - offset: 437
+    length: 82
     placeholder_text: //Click event op button
     initial_state:
       length: 23
       offset: 339
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: $button.addEventListener('click', buttonClickHandler);
-  - offset: 423
-    length: 100
+  - offset: 580
+    length: 167
     placeholder_text: //Zorg ervoor dat de functie 'showCurrentLocation' wordt aangeroepen
       op basis van de geolocation API
     initial_state:
       length: 100
       offset: 423
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       navigator.geolocation.getCurrentPosition(showCurrentLocation);
           navigator.geolocation.watchPosition(showCurrentLocation);
-  - offset: 702
-    length: 52
+  - offset: 926
+    length: 139
     placeholder_text: //Plaats de latitude en longitude in de $target HTML
     initial_state:
       length: 52
       offset: 702
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: $target.innerHTML = (location.coords.latitude + ',
       ' + location.coords.longitude);
   text: |
@@ -168,5 +168,8 @@ files:
     </body>
     </html>
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Sun, 30 May 2021 17:08:22 UTC
 record: -1

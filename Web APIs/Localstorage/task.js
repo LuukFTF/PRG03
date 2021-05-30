@@ -26,7 +26,10 @@ function init() {
  * Is local storage is available on page load? Let's fill the form
  */
 function fillFieldsFromLocalStorage() {
-    
+    if (localStorage.getItem('name') !== null && localStorage.getItem('age') !== null) {
+        $nameField.value = localStorage.getItem('name');
+        $ageField.value = localStorage.getItem('age');
+    }
 }
 
 /**
@@ -35,7 +38,9 @@ function fillFieldsFromLocalStorage() {
  * @param e
  */
 function formSubmitHandler(e) {
-    
+    e.preventDefault();
+    localStorage.setItem('name', $nameField.value);
+    localStorage.setItem('age', $ageField.value);
 }
 
 /**
@@ -44,5 +49,6 @@ function formSubmitHandler(e) {
  * @param e
  */
 function deleteClickHandler(e) {
-    
+    localStorage.removeItem('name');
+    localStorage.removeItem('age');
 }

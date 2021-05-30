@@ -4,41 +4,41 @@ files:
   visible: true
   placeholders:
   - offset: 761
-    length: 0
+    length: 202
     placeholder_text: ""
     initial_state:
       length: 0
       offset: 761
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       if (localStorage.getItem('name') !== null && localStorage.getItem('age') !== null) {
               $nameField.value = localStorage.getItem('name');
               $ageField.value = localStorage.getItem('age');
           }
-  - offset: 897
-    length: 0
+  - offset: 1099
+    length: 121
     placeholder_text: ""
     initial_state:
       length: 0
       offset: 897
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       e.preventDefault();
           localStorage.setItem('name', $nameField.value);
           localStorage.setItem('age', $ageField.value);
-  - offset: 1010
-    length: 0
+  - offset: 1333
+    length: 68
     placeholder_text: ""
     initial_state:
       length: 0
       offset: 1010
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       localStorage.removeItem('name');
           localStorage.removeItem('age');
@@ -200,5 +200,8 @@ files:
     </body>
     </html>
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Sun, 30 May 2021 20:01:37 UTC
 record: -1

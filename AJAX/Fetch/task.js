@@ -1,7 +1,7 @@
 window.addEventListener('load', init);
 
 //Global vars
-let apiUrl = '';
+let apiUrl = 'https://pokeapi.co/api/v2/pokemon/';
 let $button;
 
 function init() {
@@ -30,7 +30,7 @@ function getPokemons() {
  * @param data
  */
 function getPokemonsSuccessHandler(data) {
-    
+    console.log(data)
 }
 
 /**
@@ -39,5 +39,5 @@ function getPokemonsSuccessHandler(data) {
  * @param data
  */
 function getPokemonsErrorHandler(data) {
-    
+    console.log(data)
 }

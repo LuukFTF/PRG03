@@ -7,7 +7,11 @@ function init() {
     let form = document.getElementById('new-todo-form');
     form.addEventListener('submit', formSubmitHandler);
 
-    
+    let li = document.getElementsByTagName('li');
+
+    for (let i = 0; i < li.length; i++) {
+        li[i].addEventListener('click', listClickHandler);
+    }
 }
 
 /**
@@ -27,7 +31,8 @@ function formSubmitHandler(e) {
     //Create new li element
     let li = document.createElement('li');
     li.innerHTML = textInput;
-    
+    li.addEventListener('click', listClickHandler);
+
     //Empty the current form item so we can add another
     document.getElementById('todo-input').value = "";
     document.getElementById('message').innerHTML = textInput + " is toegevoegd";
@@ -36,3 +41,7 @@ function formSubmitHandler(e) {
     ul.appendChild(li);
 }
 
+function listClickHandler(e) {
+    let clickedItem = e.target;
+    clickedItem.classList.toggle('yellow');
+}

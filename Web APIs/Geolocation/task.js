@@ -6,6 +6,8 @@ let $button;
 
 function init() {
     //Koppel de 2 global variabelen aan de HTML elementen
+    $target = document.getElementById('target');
+    $button = document.getElementById('button');
 
     //For older browsers a fallback
     if (typeof navigator.geolocation === "undefined") {
@@ -14,6 +16,7 @@ function init() {
     }
 
     //Click event op button
+    $button.addEventListener('click', buttonClickHandler);
 }
 
 /**
@@ -21,6 +24,7 @@ function init() {
  */
 function buttonClickHandler(e) {
     //Zorg ervoor dat de functie 'showCurrentLocation' wordt aangeroepen op basis van de geolocation API
+    navigator.geolocation.getCurrentPosition(showCurrentLocation);
 }
 
 /**
@@ -31,4 +35,5 @@ function buttonClickHandler(e) {
 function showCurrentLocation(location) {
     $button.remove();
     //Plaats de latitude en longitude in de $target HTML
+    $target.innerHTML = (location.coords.latitude + ", " + location.coords.longitude);
 }

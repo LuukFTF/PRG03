@@ -1,5 +1,5 @@
 window.addEventListener('load', init);
-
+let ul;
 
 /**
  * Execute after document is fully loaded
@@ -8,13 +8,8 @@ function init() {
     let form = document.getElementById('new-todo-form');
     form.addEventListener('submit', formSubmitHandler);
 
-    //Find all li items
-    let li = document.getElementsByTagName("li");
-
-    //Add event listener to all items
-    for (let i = 0; i < li.length; i++) {
-        li[i].addEventListener('click', liClickHandler);
-    }
+    ul = document.getElementById('todo');
+    ul.addEventListener('click', liClickHandler);
 }
 
 /**
@@ -27,13 +22,12 @@ function formSubmitHandler(e) {
 
     //Get value from input
     let textInput = document.getElementById('todo-input').value;
-    //Retrieve the whole list
-    let ul = document.getElementById('todo');
+
 
     //Create new li element
     let li = document.createElement('li');
     li.innerHTML = textInput;
-    li.addEventListener('click', liClickHandler);
+
 
     //Empty the current form item so we can add another
     document.getElementById('todo-input').value = "";
@@ -51,5 +45,7 @@ function formSubmitHandler(e) {
 function liClickHandler(e) {
     let clickedItem = e.target;
 
-    clickedItem.classList.toggle('yellow');
+    if (clickedItem.nodeName === 'LI') {
+        clickedItem.classList.toggle('yellow');
+    }
 }

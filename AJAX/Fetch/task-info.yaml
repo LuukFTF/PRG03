@@ -4,34 +4,34 @@ files:
   visible: true
   placeholders:
   - offset: 68
-    length: 0
+    length: 34
     placeholder_text: ""
     initial_state:
       length: 0
       offset: 68
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: https://pokeapi.co/api/v2/pokemon?limit=151
-  - offset: 711
-    length: 0
+  - offset: 745
+    length: 17
     placeholder_text: ""
     initial_state:
       length: 0
       offset: 711
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: console.log(data);
-  - offset: 859
-    length: 0
+  - offset: 910
+    length: 17
     placeholder_text: ""
     initial_state:
       length: 0
       offset: 859
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: console.error(data);
   text: "window.addEventListener('load', init);\n\n//Global vars\nlet apiUrl = '';\n\
     let $button;\n\nfunction init() {\n    $button = document.getElementById('load-pokemon');\n\
@@ -748,5 +748,8 @@ files:
       ]
     }
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Sun, 30 May 2021 20:12:59 UTC
 record: -1
